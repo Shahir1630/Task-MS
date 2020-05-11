@@ -1,0 +1,59 @@
+﻿@model SetTaskAdminViewModel
+
+@{
+    ViewData["Title"] = "LinkedIn";
+}
+
+    <div class="container">
+        <h3 class="text-center" >LinkedIn</h3><hr>
+        <h3>Create new task</h3><br>
+        <form asp-action="LinkedIn" asp-controller="Task" method="post">
+            <input type="hidden"
+                   value="@ViewBag.Id" asp-for="EditorId" />
+            <div class="row" style="color:white">
+                <div class="col-md-6 ">
+                    <div class="col-md-12 form-group">
+                        <label>Social media</label>
+                        <input type="text" value="@ViewData["Title"]" asp-for="SocialMedia" class="form-control">
+                    </div>
+                    <div class="col-md-12 form-group">
+                        <label>Monitor</label>
+                        <select class="form-control"
+                                asp-for="MonitorId" asp-items="@(new SelectList(ViewBag.monitor, "Id", "Name"))">
+                        </select>
+                    </div>
+                    <div class="col-md-12 form-group">
+                        <label asp-for="TaskDuration">Task Duration</label>
+                        <input name="TaskDuration" asp-for="TaskDuration" class="form-control">
+                    </div>
+                    <div class="col-md-12 form-group">
+                        <label asp-for="AddTask">Add More</label>
+                        <input type="text" asp-for="AddTask" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" style="border-left: 2px solid gray; ">
+                    <ul class="task-list">
+                        <li><input type="checkbox" name="AreChecked" value="Set Marketing Goal"> Set Marketing Goal</li>
+                        <li><input type="checkbox" name="AreChecked" value="Choose Content Media"> Choose Content Media</li>
+                        <li><input type="checkbox" name="AreChecked" value="Prepare Articles"> Prepare Articles</li>
+                        <li><input type="checkbox" name="AreChecked" value="Post Text"> Post Text</li>
+                        <li><input type="checkbox" name="AreChecked" value="Post Photo"> Post Photo</li>
+                        <li><input type="checkbox" name="AreChecked" value="Post Vedio"> Post Video</li>
+                        <li><input type="checkbox" name="AreChecked" value="Organize Editorial Workflow"> Organize Editorial Workflow</li>
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <br>
+
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4 form-group">
+                        <button class="btn btn-primary form-control" type="submit">Submit</button>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+        </form>
+    </div>

@@ -1,0 +1,51 @@
+﻿@model TaskList
+@{
+    ViewData["Title"] = "Task Details";
+}
+<style>
+    label{
+        margin-top:5px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <h2 class="text-center">Task Details</h2>
+        <br />
+
+        <div class="jumbotron">
+
+            <form role="form" asp-action="TaskDetails" asp-controller="Editor" asp-route-Email="@ViewBag.Email" method="post">
+
+                <input type="hidden" asp-for="@Model.TaskId" />
+                <input type="hidden" asp-for="@Model.EditorId" />
+                <input type="hidden" asp-for="@Model.MonitorId" />
+                <input type="hidden" asp-for="@Model.TaskFinished" />
+                <input type="hidden" asp-for="@Model.MonitorReview" />
+
+                <label>Task Name :</label> @Model.TaskName
+                <input type="hidden" asp-for="@Model.TaskName" /><br />
+
+                <label>Scocial Media :</label> @Model.ScocialMedia
+                <input type="hidden" asp-for="@Model.ScocialMedia" /><br />
+
+                <label>Task Duration :</label> @Model.TaskDuration
+                <input type="hidden" asp-for="@Model.TaskDuration" /><br />
+
+                <label>Task Set Time :</label> @Model.TaskSetTime
+                <input type="hidden" asp-for="@Model.TaskSetTime" /><br />
+
+
+                <label>Work Status :</label>
+                <select asp-for="EditorReview">
+                    <option value="Not Done">Not Done</option>
+                    <option value="Done">Done</option>
+                </select><br /><br />
+                <span asp-validation-for="EditorReview" class="text-danger"></span>
+
+                    <input type="submit" value="Submit" class="btn btn-info btn-block">
+            </form>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,66 @@
+﻿@model SetTaskAdminViewModel
+@{
+    ViewData["Title"] = "Facebook";
+}
+
+
+<div class="container">
+    <h3 class="text-center">Facebook</h3><hr>
+    <h3>Create new task</h3><br>
+    <form asp-action="Facebook" asp-controller="Task" method="post">
+        <input type="hidden"
+               value="@ViewBag.Id" asp-for="EditorId" />
+        <div class="row" style="color:white">
+            <div class="col-md-6">
+                <div class="col-md-12 form-group">
+                    <label>Social media</label>
+                    <input type="text" value="@ViewData["Title"]" asp-for="SocialMedia" class="form-control">
+                </div>
+                <div class="col-md-12 form-group">
+                    <label>Monitor</label>
+                    <select class="form-control"
+                            asp-for="MonitorId" asp-items="@(new SelectList(ViewBag.monitor, "Id", "Name"))">
+                    </select>
+                    <span asp-validation-for="MonitorId" class="text-danger"></span>
+
+                </div>
+                <div class="col-md-12 form-group">
+                    <label asp-for="TaskDuration">Task Duration</label>
+                    <input name="TaskDuration" asp-for="TaskDuration" class="form-control">
+                    <span asp-validation-for="TaskDuration" class="text-danger"></span>
+                </div>
+                <div class="col-md-12 form-group">
+                    <label asp-for="AddTask">Add More</label>
+                    <input type="text" asp-for="AddTask" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-6 form-group" style="border-left: 2px solid gray; ">
+                <ul class="task-list">
+                    <li><input type="checkbox" name="AreChecked" value="Pool"> Pool</li>
+                    <li><input type="checkbox" name="AreChecked" value="Event"> Event</li>
+                    <li><input type="checkbox" name="AreChecked" value="Post Schedule"> Post Schedule</li>
+                    <li><input type="checkbox" name="AreChecked" value="Ads"> Ads</li>
+                    <li><input type="checkbox" name="AreChecked" value="Banner"> Banner</li>
+                    <li><input type="checkbox" name="AreChecked" value="Poster"> Poster</li>
+                    <li><input type="checkbox" name="AreChecked" value="Live Setting"> Live Setting</li>
+                    <li><input type="checkbox" name="AreChecked" value="A/B Testing"> A/B Testing</li>
+                    <li><input type="checkbox" name="AreChecked" value="Conversion Tracking"> Conversion Tracking</li>
+                    <li><input type="checkbox" name="AreChecked" value="Cancel or Pause Ad"> Cancel or Pause Ad</li>
+
+                </ul>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 form-group">
+                    <button class="btn btn-primary form-control" type="submit">Submit</button>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+    </form>
+</div>

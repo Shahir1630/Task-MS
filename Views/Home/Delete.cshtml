@@ -1,0 +1,39 @@
+﻿@model Userdetails
+@{
+    ViewData["Title"] = "Delete Employee";
+}
+
+
+<h2 class="text-center">Delete Employee</h2>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="jumbotron">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <form role="form" asp-action="Delete" asp-controller="Home" method="post">
+
+                <div class="col-md-12 form-group">
+                    <label for="FirstName"> Name :</label> @Model.Name
+                </div>
+
+                <div class="col-md-12 form-group">
+                    <label asp-for="Mobile">Mobile :</label> @Model.Mobile
+                </div>
+                <div class="col-md-12 form-group">
+                    <label for="Email">Email :</label> @Model.Email
+                </div>
+                <div class="col-md-12 form-group">
+                    <label for="Password">Password :</label> @Model.Password
+                </div>
+
+                <div class="col-md-12 form-group">
+                    <label for="Actor">Actor :</label> @Model.Actor
+                </div>
+
+                <input type="submit" value="Delete" class="btn btn-danger btn-block">
+                <a asp-action="AllEmployee" asp-controller="Home" class="btn btn-success btn-block">Cancel </a>
+                <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
+            </form>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "All Task";
+}
+
+<h1 style="text-align:center">@ViewData["Title"]</h1>
+<div class="container">
+
+    <div style="margin:20px">
+
+    </div>
+    <table class="table">
+        <thead style="background:#435d7d;color:white">
+            <tr>
+                <th>Task Id</th>
+                <th>Task Duration</th>
+                <th>Task Finished</th>
+                <th>Editor Review</th>
+                <th>Monitor Review</th>
+                <th>View</th>
+
+            </tr>
+        </thead>
+        <tbody style="background:#ecf0f1">
+
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.TaskId</td>
+                    <td>@x.TaskDuration</td>
+                    <td>@x.TaskFinished</td>
+                    <td>@x.EditorReview</td>
+                    <td>@x.MonitorReview</td>
+                    <td> <a class="btn btn-success" asp-controller="Task" asp-action="TaskDetails" asp-route-Id="@x.TaskId" role="button">View</a> </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

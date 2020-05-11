@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "All Employee";
+}
+
+<h1 style="text-align:center">@ViewData["Title"]</h1>
+<div class="container">
+
+    <div style="margin:20px">
+
+    </div>
+    <table class="table">
+        <thead style="background:#435d7d;color:white">
+            <tr>
+                <th>Employee Id</th>
+                <th>Employee Name</th>
+                <th>Editor Mobile</th>
+                <th>Add Email</th>
+                <th>Actor</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody style="background:#ecf0f1">
+
+            @foreach (var x in Model)
+            {
+            <tr>
+                <td>@x.Id</td>
+                <td>@x.Name</td>
+                <td>@x.Mobile</td>
+                <td>@x.Email</td>
+                <td>@x.Actor</td>
+                @if (x.Actor=="Admin")
+                {
+                    <td> <a class="btn btn-warning" role="button" disabled="disabled">Edit</a> </td>
+                    <td> <a class="btn btn-danger" role="button" disabled="disabled">Delete</a> </td>
+
+                }
+                else
+                {
+                    <td> <a class="btn btn-warning" asp-controller="Home" asp-action="Edit" asp-route-Id="@x.Id" role="button">Edit</a> </td>
+                    <td> <a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-Id="@x.Id" role="button">Delete</a> </td>
+                }
+
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

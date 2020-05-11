@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "Task Details";
+}
+<style>
+    label{
+        margin-top:5px;
+    }
+</style>
+
+<h2 class="text-center">Task Details</h2>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="jumbotron">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <label>Task Id : </label> @Model.TaskId <br />
+            <label>Task :</label> @Model.TaskName <br />
+            <label>Scocial Media :</label> @Model.ScocialMedia <br />
+            <label>Task Set Time : </label> @Model.TaskSetTime <br />
+            <label>Task Duration :</label> @Model.TaskDuration <br />
+            <label>Task Finished :</label> @Model.TaskFinished <br />
+
+            <label>Monitor Review : </label> @Model.MonitorReview <br />
+            <label>Monitor Name : </label> @ViewBag.Monitor <br />
+
+            <label>Editor Name : </label> @ViewBag.Editor <br />
+            <label>Editor Review : </label> @Model.EditorReview <br /><br />
+
+            <a asp-action="AllDoneTask" asp-controller="Task" class="btn btn-info btn-block">Back</a>
+
+        </div>
+    </div>
+
+</div>

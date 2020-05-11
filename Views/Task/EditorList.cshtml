@@ -1,0 +1,37 @@
+﻿@*@model List<Userdetails>;*@
+
+
+@{
+    ViewData["Title"] = "Editor List";
+}
+
+
+
+<h1 style="text-align:center">@ViewData["Title"]</h1>
+<div class="container">
+
+    <div style="margin:20px">
+
+    </div>
+    <table class="table">
+        <thead style="background:#435d7d;color:white">
+            <tr>
+                <th>Editor Id</th>
+                <th>Editor Name</th>
+                <th>Add Task</th>
+            </tr>
+        </thead>
+        <tbody style="background:#ecf0f1">
+
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.Id</td>
+                    <td>@x.Name</td>
+                    <td> <a class="btn btn-success" asp-controller="Task" asp-action="TaskType" asp-route-Id="@x.Id" role="button">Add Task</a> </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

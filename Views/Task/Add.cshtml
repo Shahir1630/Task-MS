@@ -1,0 +1,74 @@
+﻿@model SetTaskAdminViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="row">
+    @if (TempData["validationmessage"] != null)
+    {
+        string alertType = "alert alert-" + TempData["alertType"];
+        <div class="@alertType">
+            <strong>Alert!</strong> @TempData["validationmessage"]
+        </div>
+    }
+</div>
+<h2 class="text-center">Registar</h2>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="jumbotron">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <form role="form" asp-action="Add" asp-controller="Task" method="post">
+                <div class="form-group">
+                    <label for="SocialMedia">Social Media</label>
+                    <select asp-for="SocialMedia">
+                        <option value="">Select a number</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="LinkedIn">LinkedIn</option>
+                    </select>
+                    <span asp-validation-for="SocialMedia" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="EmployeeId">Employee</label>
+                    <select asp-for="EditorId" asp-items="@(new SelectList(ViewBag.employee,"Id","Name"))">
+                    </select>
+                    <span asp-validation-for="EditorId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="MonitorId">Monitor</label>
+                    <select asp-for="MonitorId" asp-items="@(new SelectList(ViewBag.monitor,"Id","Name"))">
+                    </select>
+                    <span asp-validation-for="MonitorId" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="TaskSetTime">Task Set Time</label>
+                    <input  name="TaskSetTime" asp-for="TaskSetTime" class="form-control">
+                    <span asp-validation-for="TaskSetTime" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TaskDuration">Task Duration</label>
+                    <input   name="TaskDuration" asp-for="TaskDuration" class="form-control" >
+                    <span asp-validation-for="TaskDuration" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="AddTask">Add Task</label>
+                    <input type="text" name="AddTask" asp-for="AddTask" class="form-control input-sm" autocomplete="off" data-val="true" data-val-required="The Mobile field is required." placeholder="Name">
+                    <span asp-validation-for="AddTask" class="text-danger"></span>
+                </div>
+                @*<div class="form-group">
+            <label for="AreChecked">Are Checked</label>
+            <input type="checkbox" name="AreChecked" asp-for="AreChecked" autocomplete="off" class="form-control input-sm" placeholder="AreChecked">
+            <span asp-validation-for="AreChecked" class="text-danger"></span>
+        </div>*@
+
+                <input type="submit" value="Register" class="btn btn-info btn-block">
+                <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
+            </form>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,45 @@
+﻿@model TaskList
+@{
+    ViewData["Title"] = "Task Details";
+}
+
+<style>
+    label{
+        margin-top:5px;
+    }
+</style>
+<h2 class="text-center">Task Details</h2>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="jumbotron">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <form role="form" asp-action="TaskDetails" asp-controller="Monitor" asp-route-Email="@ViewBag.Email" method="post">
+
+                <input type="hidden" asp-for="@Model.TaskId" />
+                <input type="hidden" asp-for="@Model.EditorId" />
+                <input type="hidden" asp-for="@Model.MonitorId" />
+                <input type="hidden" asp-for="@Model.TaskSetTime" />
+                <input type="hidden" asp-for="@Model.EditorReview" />
+
+                    <label for="FirstName">Task :</label> @Model.TaskName <br />
+                    <input type="hidden" asp-for="@Model.TaskName" />
+
+                    <label>Scocial Media :</label> @Model.ScocialMedia <br />
+                    <input type="hidden" asp-for="@Model.ScocialMedia" />
+
+                    <label>Task Duration :</label> @Model.TaskDuration <br />
+                    <input type="hidden" asp-for="@Model.TaskDuration" />
+
+                    <label>Task Finished :</label> @Model.TaskFinished <br /> 
+                    <input type="hidden" asp-for="@Model.TaskFinished" />
+
+
+                    <label asp-for="MonitorReview">Task's Review :</label> <br />
+                    <textarea asp-for="MonitorReview" class="form-control input-sm" placeholder="Give Your Review" required></textarea> <br />
+
+                    <input type="submit" value="Submit" class="btn btn-info btn-block">
+            </form>
+        </div>
+    </div>
+
+</div>

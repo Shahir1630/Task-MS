@@ -1,0 +1,54 @@
+﻿@model Userdetails
+@{
+    ViewData["Title"] = "Edit Employee";
+}
+
+
+<h2 class="text-center">Edit Employee</h2>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="jumbotron">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <form role="form" asp-action="Edit" asp-controller="Home" method="post">
+
+                <div class="col-md-12 form-group">
+                    <label for="FirstName"> Name</label>
+                    <input type="text" name="Name" asp-for="Name" class="form-control input-sm" autocomplete="off" data-val="true" data-val-required="The Mobile field is required." placeholder="First Name">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-12 form-group">
+                    <label asp-for="Mobile"></label>
+                    <input type="text" name="Mobile" data-val="true" autocomplete="off" data-val-required="The Mobile field is required." asp-for="Mobile" class="form-control input-sm" placeholder="Mobile">
+                    <span asp-validation-for="Mobile" class="text-danger"></span>
+                </div>
+                <div class="col-md-12 form-group">
+                    <label for="Email">Email</label>
+                    <input type="email" name="Email" asp-for="Email" autocomplete="off" data-val="true" class="form-control input-sm" data-val-required="The Mobile field is required." placeholder="Email Address">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="col-md-12 form-group">
+                    <label for="Password">Password</label>
+                    <input type="text" name="Password" asp-for="Password" autocomplete="off" class="form-control input-sm" data-val="true" data-val-required="The Mobile field is required." placeholder="Password">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-12 form-group">
+                    <label for="Actor">Actor</label>
+                    <select asp-for="Actor">
+                        <option value="">Select One</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Monitor">Monitor</option>
+                        <option value="Editor">Editor</option>
+                    </select>
+                    <span asp-validation-for="Actor" class="text-danger"></span>
+                </div>
+
+                <input type="submit" value="Save" class="btn btn-success btn-block">
+                <a asp-action="AllEmployee" asp-controller="Home" class="btn btn-danger btn-block">Cancel </a>
+                <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
+            </form>
+        </div>
+    </div>
+
+</div>
